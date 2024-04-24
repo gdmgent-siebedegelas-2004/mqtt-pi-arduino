@@ -13,8 +13,10 @@
     </ul>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <script>
+        const host = window.location.host;
+        const port = 9001;
         const messages = document.getElementById("messages");
-        const client = mqtt.connect("mqtt://192.168.50.223:9001");
+        const client = mqtt.connect(`mqtt://${host}:${port}`);
 
         client.on("connect", () => {
             client.subscribe("arduino/test", (err) => {
