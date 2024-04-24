@@ -55,6 +55,18 @@ sudo systemctl restart mosquitto
 pip install -r requirements.txt
 ```
 
+
+### Arduino
+
+Start de Arduino IDE en installeer de volgende libraries:
+
+- ArduinoMqttClient
+- WiFiNINA
+
+Open het bestand `arduino/arduino_wifi_mqtt.ino`.
+Stop je WiFi-gegevens in het bestand 'wifiSecrets.h'.
+Upload de code naar de Arduino.
+
 ## Starten
 
 ```
