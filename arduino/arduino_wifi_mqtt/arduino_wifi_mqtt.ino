@@ -11,10 +11,10 @@ MqttClient mqttClient(wifiClient);
  
 const char broker[] = "192.168.50.223";
 int        port     = 1883;
-const char topic[]  = "arduino/test";
+const char topic[]  = "arduino/jannesiscool";
  
 //set interval for sending messages (milliseconds)
-const long interval = 8000;
+const long interval = 1000;
 unsigned long previousMillis = 0;
  
 int count = 0;
@@ -65,15 +65,16 @@ void loop() {
  
     //record random value from A0, A1 and A2
     int Rvalue = analogRead(A0);
+    String stringOne = "Hello";                  
  
     Serial.print("Sending message to topic: ");
     Serial.println(topic);
-    Serial.println(Rvalue);
+    Serial.println(stringOne);
  
  
     // send message, the Print interface can be used to set the message contents
     mqttClient.beginMessage(topic);
-    mqttClient.print(Rvalue);
+    mqttClient.print(stringOne);
     mqttClient.endMessage();
  
     Serial.println();
