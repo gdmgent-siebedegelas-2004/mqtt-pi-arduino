@@ -1,6 +1,6 @@
 #include <ArduinoMqttClient.h>
 #include <WiFiNINA.h>
-#include "wifiSecret.h"
+#include "wifiSecret.h" // you need to create this file with your own network credentials (in .gitignore)
  
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
 char ssid[] = SECRET_SSID;        // your network SSID (name)
