@@ -30,9 +30,11 @@ Daarvoor moet je eerst manueel een bestand maken in de map `/etc/mosquitto/conf.
 ```
 listener 1883
 protocol mqtt
+allow_anonymous true
 
 listener 9001
 protocol websockets
+allow_anonymous true
 ```
 
 Door toevoeging van deze configuratie, zal de Mosquitto broker luisteren op poort 1883 (de standaard MQTT poort) en op poort 9001 voor websockets.
