@@ -19,14 +19,61 @@
         const client = mqtt.connect(`mqtt://${host}:${port}`);
 
         client.on("connect", () => {
-            client.subscribe("arduino/test", (err) => {
+            client.subscribe("arduino/vochtigheid", (err) => {
                 if (!err) {
                 client.publish("presence", "Hello mqtt");
+                console.log("connected");
+                }
+            });
+            client.subscribe("arduino/lichtwaarde", (err) => {
+                if (!err) {
+                client.publish("presence", "Hello mqtt");
+                console.log("connected");
+                }
+            });
+            client.subscribe("arduino/waterniveau", (err) => {
+                if (!err) {
+                client.publish("presence", "Hello mqtt");
+                console.log("connected");
+                }
+            });
+            client.subscribe("arduino/temperature", (err) => {
+                if (!err) {
+                client.publish("presence", "Hello mqtt");
+                console.log("connected");
+                }
+            });
+            client.subscribe("arduino/humidity", (err) => {
+                if (!err) {
+                client.publish("presence", "Hello mqtt");
+                console.log("connected");
                 }
             });
         });
 
         client.on("message", (topic, message) => {
+            console.log("topic received: ", topic.toString()); 
+            switch (topic.toString()) {
+                case "arduino/vochtigheid":
+                    console.log("vochtigheid: ", message.toString());
+                    break;
+                case "arduino/lichtwaarde":
+                    console.log("lichtwaarde: ", message.toString());
+                    break;
+                case "arduino/waterniveau":
+                    console.log("waterniveau: ", message.toString());
+                    break;
+                case "arduino/temperature":
+                    console.log("temperatuur: ", message.toString());
+                    break;
+                case "arduino/humidity":
+                    console.log("temperatuur: ", message.toString());
+                    break;
+                default:
+                    console.log("unknown topic: ", topic.toString());
+                    break;
+            }
+            console.log("message received: ", message.toString());
             const msg = message.toString();
             const time = new Date().toLocaleTimeString();
             const li = document.createElement("li");
