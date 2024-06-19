@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-red-dashboard": "github:node-red/node-red-dashboard",
+    "request": "^2.88.2"
+  }
+}
