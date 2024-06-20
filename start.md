@@ -6,5 +6,4 @@ python app.py
 node-red
 
 
-http://192.168.50.61:5678/
-
+http://192.168.50.61:1880/ui
